@@ -1,0 +1,32 @@
+#41 o/n 22
+DataArray = [0] * 100
+def Readfile():
+    global DataArray
+    try :
+        file = open("IntegerData.txt",'r')
+        for x in range(100):
+            DataArray[x] = int(file.readline())
+    except IOError:
+        print("file not found")
+def findvalues():
+    global DataArray
+    usersearch = -1
+    while usersearch <1 or usersearch>100:
+        usersearch = int(input("enter a num bw 1 and 100"))
+        timesofnumpresent = 0
+        for x in range(100):
+            if usersearch == DataArray[x]:
+                timesofnumpresent = timesofnumpresent +1
+    return timesofnumpresent
+Readfile()
+print("the number appears" +""+ str(findvalues())+" times")
+def Bubblesort(DataArray):
+    for x in range (100):
+        for x in range (99):
+            if DataArray[x]>DataArray[x+1]:
+                temp = DataArray[x]
+                DataArray[x] = DataArray[x+1]
+                DataArray[x+1] = temp
+Bubblesort(DataArray)
+print(DataArray)
+
